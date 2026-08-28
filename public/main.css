@@ -5,7 +5,7 @@
     flex-direction: row;
     display:flex;
     justify-content: center;
-    background-color: rgb(25, 34, 34);
+    background-color: #F5F5F5;
 }
 .main_frame {
     position:relative;
@@ -14,8 +14,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    
-    background-color: rgb(190, 190, 147);
+    background-color: #FAFAFA;
 }
 
 .main_frame .left_frame{
@@ -35,15 +34,14 @@
     margin-right: 27px;
     display: flex;
     flex-direction: column;
-     background-color: green;
-
+       background-color: #FAFAFA;
 }
 
 .main_frame .right_frame{
     position: relative;
     width: 108px;
     height: 1315px;
-    background-color: red;
+     background: #edecec;
     align-items: center;
     display: flex;
     flex-direction: column;
@@ -365,16 +363,14 @@ margin-left:45px;
     background-color: white;
 
 }
-.middle_2{
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
+.middle_2 {
     width: 970px;
     height: 653px;
-    margin-top:194.91px;
-    margin-bottom: 0px;
-    background-color: yellow;
-
+    margin-top: 194.91px;
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .main_picture{
     width: 325px;
@@ -413,17 +409,6 @@ margin-left:45px;
     margin-left: 40px;
 
 }
-/* .second{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items:flex-start ;
-    width: 970px;
-    height: 50px ;
-    margin-bottom: 1px;
-    margin-top: 0;
-    
-} */
 .my{
     display: flex;
     justify-content: center;
@@ -436,26 +421,156 @@ margin-left:45px;
     font-style: bold;
     margin-bottom: 5px;
 }
-/* .asosiy_1{
-   width: 170px;
-    height: 120px;
-    background-color: white;
-    margin-bottom: 30px;
-    margin-left: 5px;
-    padding: 20px;
-    text-align: center;
-} */
+
 .services{
     display: flex;
     justify-content: center;
     flex-direction: column;
     margin-bottom: 200px;
 }
-.services h2 {
-    font-size: 32px;
+
+.services-text {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.services-cards {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+.services-cards h3 {
+    margin-bottom: 10px;
+}
+
+.services-cards p {
+    margin-top: 0;
+}
+.card {
+    height: 190px;
+    background-color: white;
     display: flex;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+.card img {
+    margin-top: 10px;
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+
+}
+.card:nth-child(6) p {
+    margin-top: 10px;
     justify-content: center;
-    margin-bottom: 5px;
+    
+    text-align: center;
+}
+.order{
+    display:flex;
+    justify-content: center;
+    width: 86px;
+    height: 20px;
+    margin-bottom: 20px;
+}
+.card:nth-child(6) h3 {
+    margin-top: 40px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.right_1{
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+.night_1-1{
+    justify-content: center;
+    display: flex;
+    margin-top: 60px;
+    margin-left: 20px;
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+.night_1-2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 500px;
+    flex-direction: column;
+    margin-top: 200px;
+
+}
+.night_1-3{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+   
+}
+.night_1_3{
+     display: flex;
+     width: 65px;
+    height: 33px;
     margin-top: 0px;
+    margin-bottom: 1px;
+}
+.night_1_4{
+    display: flex;
+    margin-top: 1px;
+    width: 40px;
+    height: 40px;
+}
+.turt{
+    position: absolute;
+    justify-content: flex-start;
+    margin-left: 70px;
+    margin-top: 20px;
+    width: 16px;
+    height: 16px;
+}
+.turt1{
+     position: absolute;
+    justify-content: flex-end;
+    margin-left: 800px;
+    margin-top: 80px;
+    width: 16px;
+    height: 16px;
+}
+.turt2{
+     position: absolute;
+    justify-content: flex-end;
+    margin-left: 850px;
+    margin-top: 430px;
+    width: 16px;
+    height: 16px;
+}
+.turt3{
+     position: absolute;
+    justify-content: flex-end;
+    margin-left: 150px;
+    margin-top: 400px;
+    width: 16px;
+    height: 16px;
+}
+.turt4{
+     position: absolute;
+    justify-content: flex-end;
+    margin-left: 350px;
+    margin-top: 300px;
+    width: 16px;
+    height: 16px;
+}
+.turt5{
+     position: absolute;
+    justify-content: flex-end;
+    margin-left: 50px;
+    margin-top: 400px;
+    width: 16px;
+    height: 16px;
 }
