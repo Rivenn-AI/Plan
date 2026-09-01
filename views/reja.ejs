@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>REJA</title>
+
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+  >
+</head>
+
+<body style="background: #b8bbd1">
+
+<div class="container mt-5">
+
+  <h1 class="text-center mb-4">REJA VA MAQSADLAR</h1>
+
+  <form action="/create-item" method="POST" class="bg-white p-4 rounded shadow">
+
+    <div class="input-group">
+      <input
+        name="reja"
+        class="form-control"
+        placeholder="Yangi reja yozing..."
+        autocomplete="off"
+      >
+
+      <div class="input-group-append">
+        <button class="btn btn-primary">
+          + Qo'shish
+        </button>
+      </div>
+    </div>
+
+  </form>
+
+  <ul class="list-group mt-4">
+
+    <% items.forEach(function(item) { %>
+
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+
+        <span><%= item.reja %></span>
+
+        <div>
+          <button
+            data-id="<%= item._id %>"
+            class="btn btn-secondary btn-sm edit-me">
+            O'zgartirish
+          </button>
+
+          <button
+            data-id="<%= item._id %>"
+            class="btn btn-danger btn-sm delete-me">
+            O'chirish
+          </button>
+        </div>
+
+      </li>
+
+    <% }) %>
+
+  </ul>
+
+</div>
+
+</body>
+</html>
