@@ -13,7 +13,7 @@ module.exports = function(db) {
   
   app.post("/create-item", (req, res) => {
     const new_reja = req.body.reja;
-    db.collection("plan").insertOne({reja: new_reja}, (err, data) => {
+    db.collection("plans").insertOne({reja: new_reja}, (err, data) => {
       if(err) {
         console.log(err);
         res.end("Something went wrong");
@@ -25,7 +25,7 @@ module.exports = function(db) {
   });
   
   app.get("/", function(req, res) {
-    db.collection("plan").find().toArray((err, data) => {
+    db.collection("plans").find().toArray((err, data) => {
       if(err) {
         console.log(err);
         res.end("Something went wrong");
