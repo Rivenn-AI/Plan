@@ -1,49 +1,35 @@
+
 const http = require("http");
 const { MongoClient } = require("mongodb");
 
-const connectionString =
-  "mongodb+srv://Riven:Jaloliddin2005A@cluster0.mgxxaw2.mongodb.net/?appName=Cluster0";
+const connectionString = "mongodb+srv://Riven:Jaloliddin2005A@cluster0.mgxxaw2.mongodb.net/?appName=Cluster0";
+const client = new MongoClient(connectionString, {
+  useUnifiedTopology: true
+});
 
-const client = new MongoClient(connectionString);
-
-async function startServer() {
-
-  try {
-
-    await client.connect();
-
-    console.log("Mongo db connect success");
-
-    // MongoDB database
-    const db = client.db("Reja");
-
-    // app.js ga db ni beramiz
-    const createApp = require("./app");
-
-    const app = createApp(db);
-
-    const server = http.createServer(app);
-
-    const PORT = 4001;
-
-    server.listen(PORT, () => {
-
-      console.log(
-        `The server is running successfully on port: ${PORT}, http://localhost:${PORT}`
-      );
-
-    });
-
-  } catch (err) {
-
+// Client-ni ulash--Callback mongodb ni ulash
+client.connect((err) => {
+  if(err) {
     console.log("MongoDB connection error:", err);
-
+  } else {
+    console.log("Mongo db connect success");
+    
+    // Database tanlash
+    const db = client.db("Reja");
+    
+    // App.js-dan app olish
+    const createApp = require("./app");
+    const app = createApp(db);
+    
+    // Server yaratish
+    const server = http.createServer(app);
+    const PORT = 4001;
+    
+    server.listen(PORT, function() {
+      console.log(`The server is running successfully on port: ${PORT}, http://localhost:${PORT}`);
+    });
   }
-
-}
-
-startServer();
-
+});
 // const http = require("http"); 
 // const mongodb= require("mongodb");
 
@@ -70,45 +56,6 @@ startServer();
 //      });
 //     };
 // });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -1,104 +1,43 @@
-console.log("webserverni boshlash");
 
 const express = require("express");
 
-const app = express();
-
-// MongoDB database server.js dan keladi
-module.exports = function (db) {
-
-  // Static files
+module.exports = function(db) {
+  const app = express();
+  
   app.use(express.static("public"));
-
-  // Body parser
   app.use(express.json());
-  app.use(express.urlencoded({ extended: true }));
-
-  // EJS
+  app.use(express.urlencoded({extended: true}));
+  
   app.set("views", "views");
   app.set("view engine", "ejs");
-
-
-  // =========================
-  // YANGI REJA QO'SHISH
-  // =========================
-
-  app.post("/create-item", async (req, res) => {
-      console.log('user entered /create-item');
-
-    console.log(req.body);
-
+  
+  app.post("/create-item", (req, res) => {
     const new_reja = req.body.reja;
-
-    try {
-
-      const result = await db.collection("plan").insertOne({
-        reja: new_reja
-      });
-
-      console.log("MongoDB ga saqlandi:", result);
-
-      res.redirect("/");
-
-    } catch (err) {
-
-      console.log("MongoDB ERROR:", err);
-
-      res.status(500).send("Something went wrong");
-
-    }
-
+    db.collection("plan").insertOne({reja: new_reja}, (err, data) => {
+      if(err) {
+        console.log(err);
+        res.end("Something went wrong");
+      } else {
+        console.log(data);
+        res.redirect("/");
+      }
+    });
   });
-
-
-  // =========================
-  // BARCHA REJALARNI OLISH
-  // =========================
-
-  app.get("/", async (req, res) => {
-           console.log('user entered /');
-    try {
-
-      const data = await db.collection("plan").find().toArray();
-
-      console.log("MongoDB data:", data);
-
-      res.render("reja", {
-        items: data
-      });
-
-    } catch (err) {
-
-      console.log("MongoDB ERROR:", err);
-
-      res.status(500).send("Something went wrong");
-
-    }
-
+  
+  app.get("/", function(req, res) {
+    db.collection("plan").find().toArray((err, data) => {
+      if(err) {
+        console.log(err);
+        res.end("Something went wrong");
+      } else {
+        console.log(data);
+        res.render("reja", {items: data});
+      }
+    });
   });
-
-
+  
   return app;
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -166,6 +105,12 @@ module.exports = function (db) {
 // server.listen(PORT, function () {
 //     console.log(`The server is running succesfully on port: ${PORT}, http://localhost:${PORT}`);
 // });
+
+
+
+
+
+
 //=========23-24-25==============// Mongo va Crud urnatish
 //Mongo db ulash
 // //====================21-22======================//
