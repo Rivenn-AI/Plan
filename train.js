@@ -1,16 +1,23 @@
 
 
-//Mit-task-B
-function countDigits(str){
-    let count = 0;
-   for (let i = 0; i<str.length; i++){
-    if(str[i]>= "0" && str[i] <="9"){
-        count++;
-    }
-   }
-   return count;
+//MIT task-C
+function check(a,b){
+  return a.split("").sort().join("") === b.split("").sort().join("");
 }
-console.log(countDigits("iuewy3498iu03u8y"));
+console.log(check("Ali","lIA"));
+console.log(check("bek","ebk"));
+
+//Mit-task-B
+// function countDigits(str){
+//     let count = 0;
+//    for (let i = 0; i<str.length; i++){
+//     if(str[i]>= "0" && str[i] <="9"){
+//         count++;
+//     }
+//    }
+//    return count;
+// }
+// console.log(countDigits("iuewy3498iu03u8y"));
 // //MIT-task-A
 // function countLetter(letter,word){
 //     let count = 0;

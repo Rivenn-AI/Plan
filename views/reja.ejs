@@ -18,10 +18,11 @@
 
   <h1 class="text-center mb-4">REJA VA MAQSADLAR</h1>
 
-  <form action="/create-item" method="POST" class="bg-white p-4 rounded shadow">
+  <form  id="create-item" action="/create-item" method="POST" class="bg-white p-4 rounded shadow">
 
     <div class="input-group">
       <input
+        id="create-field"
         name="reja"
         class="form-control"
         placeholder="Yangi reja yozing..."
@@ -37,13 +38,13 @@
 
   </form>
 
-  <ul class="list-group mt-4">
+  <ul id="item-text" class="list-group mt-4">
 
     <% items.forEach(function(item) { %>
 
       <li class="list-group-item d-flex justify-content-between align-items-center">
 
-        <span><%= item.reja %></span>
+        <span class="item-text"><%= item.reja %></span>
 
         <div>
           <button
@@ -64,8 +65,12 @@
     <% }) %>
 
   </ul>
+  <button id="clean-all" class="btn btn-danger" style="margin-top: 50px;" >
+  Hammasini o'chirish
+</button>
 
 </div>
-
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="/browser.js"></script>
 </body>
 </html>

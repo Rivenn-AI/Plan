@@ -1,5 +1,6 @@
 
 const express = require("express");
+const mongodb = require("mongodb")
 
 module.exports = function(db) {
   const app = express();
@@ -14,16 +15,49 @@ module.exports = function(db) {
   app.post("/create-item", (req, res) => {
     const new_reja = req.body.reja;
     db.collection("plans").insertOne({reja: new_reja}, (err, data) => {
-      if(err) {
-        console.log(err);
-        res.end("Something went wrong");
-      } else {
-        console.log(data);
-        res.redirect("/");
-      }
+      console.log(data.ops);
+      res.json(data.ops[0]);
+      // if(err) {
+      //   console.log(err);
+      //   res.end("Something went wrong");
+      // } else {
+      //   console.log(data);
+      //   res.end("Succesfully added");
+      // }
     });
   });
-  
+
+  //=====================>>>>Delete button
+  app.post("/delete-item",(req,res) => {
+    const id= req.body.id;
+    db.collection("plans").deleteOne({_id:new mongodb.ObjectId(id)},
+     function(err,data){
+     res.json({state:"success"});
+    })
+  });
+
+  //=====================>>>>>>Edit button
+  app.post("/edit-item", (req,res) =>{
+    const data = req.body;
+    console.log(data);
+    db.collection("plans")
+    .findOneAndUpdate(
+      {_id:new mongodb.ObjectId(data.id)},
+    {$set: {reja:data.new_input}}, 
+    function(err,data){
+      res.json({state:"succes"});
+    })
+  });
+  //======== Delete all button
+  app.post("/delete-all", (req,res) =>{
+    if(req.body.delete_all){
+      db.collection("plans").deleteMany(function(){
+        res.json({state:"hamma rejalar uchrildi"});
+      });
+    }
+  });
+
+
   app.get("/", function(req, res) {
     db.collection("plans").find().toArray((err, data) => {
       if(err) {
@@ -46,7 +80,7 @@ module.exports = function(db) {
 // const express = require("express"); 
 // const app = express(); 
 
-// // Mongo db chaqrish
+// // // Mongo db chaqrish
 // const db = require("./server").db();
 // //const http = require("http"); 
 // // const fs = require("fs");
@@ -71,13 +105,15 @@ module.exports = function(db) {
 //   console.log(req.body);
 //   const new_reja = req.body.reja;
 //   db.collection("plans").insertOne( {reja: new_reja}, (err,data) => {
-//     if(err){
-//       console.log(err);
-//       res.end("Something went wrong");
-//     } else{
-//       console.log(data);
-//       res.end("Succesfully added");
-//     }
+//     console.log(data.ops);
+//     res.json(data.ops[0]);
+//     // if(err){
+//     //   console.log(err);
+//     //   res.end("Something went wrong");
+//     // } else{
+//     //   console.log(data);
+//     //   res.end("Succesfully added");
+//     // }
 //   });
 // });
 
