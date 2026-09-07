@@ -11,41 +11,47 @@
 // return hozir 20:50da 1ta non, 5ta lagmon va 6ta cola mavjud!
 class Shop{
   #non;
+  #cola;
+   #lagmon;
   constructor(non, cola, lagmon){
     this.#non = non;
-    this.cola= cola;
-    this.lagmon= lagmon;
+    this.#cola= cola;
+    this.#lagmon= lagmon;
   }
   
   qoldiq(){
     const soldTime = new Date().toLocaleTimeString();
-    console.log(`Hozir soat ${soldTime} da ${this.#non} ta non, ${this.cola} ta cola va ${this.lagmon} ta lagmon bor`)
+    console.log(`Hozir soat ${soldTime} da ${this.#non} ta non, ${this.#cola} ta cola va ${this.#lagmon} ta lagmon bor`)
   }
   sotish(maxsulot, qiymat) {
     if (maxsulot === "non") {
         this.#non -= qiymat;
     } else if (maxsulot === "cola") {
-        this.cola -= qiymat;
+        this.#cola -= qiymat;
     } else if (maxsulot === "lagmon") {
-        this.lagmon -= qiymat;
+        this.#lagmon -= qiymat;
     }
 
-    console.log(`Yangi tavar: ${maxsulot}, miqdori: ${qiymat}`);
+    console.log(`Sotilgan tavar: ${maxsulot}, miqdori: ${qiymat}`);
 }
- qabul(qabul){
-  this.pamidor+=qabul;
-    //const soldTime = new Date();
-   // console.log(``)
-
+ qabul(maxsulot, qiymat){
+  if (maxsulot === "non") {
+    this.#non += qiymat;
+} else if (maxsulot === "cola") {
+    this.#cola += qiymat;
+} else if (maxsulot === "lagmon") {
+    this.#lagmon += qiymat;
+}
   }
 }
 const myShop = new Shop(4,5,2);
 myShop.qoldiq();
 myShop.sotish("non",1);
 myShop.qoldiq();
-
-
-
+myShop.qabul("lagmon",5);
+myShop.qoldiq();
+myShop.sotish("cola",2)
+myShop.qoldiq();
 //MIT task-C
 // function check(a,b){
 //   return a.split("").sort().join("") === b.split("").sort().join("");
