@@ -23,7 +23,7 @@ client.connect((err) => {
     
     // Server yaratish
     const server = http.createServer(app);
-    const PORT = 4001;
+    const PORT = process.env.PORT || 4001;
     
     server.listen(PORT, function() {
       console.log(`The server is running successfully on port: ${PORT}, http://localhost:${PORT}`);
