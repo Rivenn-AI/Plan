@@ -25,9 +25,10 @@ console.log("javaScript ishga tushdi");
       </li>`;
  }
 
-let createField = document.getElementById("create-field");
+ const createField = document.getElementById("create-field");
+ const createForm = document.getElementById("create-item");
 
-document.getElementById("create-item").addEventListener("submit", function (e){
+document.getElementById("item-text").addEventListener("submit", function (e){
     e.preventDefault();
    
 
@@ -35,7 +36,7 @@ document.getElementById("create-item").addEventListener("submit", function (e){
     axios
     .post("/create-item", {reja:createField.value})
     .then((response) =>{
-        document.getElementById("item-list").insertAdjacentHTML("beforeend", itemTemplate(response.data))
+        document.getElementById("item-text").insertAdjacentHTML("beforeend", itemTemplate(response.data))
         createField.value ="";
         createField.focus();
     })

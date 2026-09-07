@@ -1,6 +1,6 @@
 
 const express = require("express");
-const mongodb = require("mongodb")
+const mongodb = require("mongodb");
 
 module.exports = function(db) {
   const app = express();
