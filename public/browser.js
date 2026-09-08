@@ -28,8 +28,8 @@ console.log("javaScript ishga tushdi");
  const createField = document.getElementById("create-field");
  const createForm = document.getElementById("create-item");
 
-document.getElementById("item-text").addEventListener("submit", function (e){
-    e.preventDefault();
+ createForm.addEventListener("submit", function (e) {
+  e.preventDefault();
    
 
 
