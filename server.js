@@ -1,55 +1,55 @@
-
 const http = require("http");
 const { MongoClient } = require("mongodb");
 
-const connectionString = "mongodb+srv://Riven:Jaloliddin2005A@cluster0.mgxxaw2.mongodb.net/?appName=Cluster0";
+const connectionString =
+  "mongodb+srv://Riven:Jaloliddin2005A@cluster0.mgxxaw2.mongodb.net/?appName=Cluster0";
 const client = new MongoClient(connectionString, {
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
 });
 
 // Client-ni ulash--Callback mongodb ni ulash
 client.connect((err) => {
-  if(err) {
+  if (err) {
     console.log("MongoDB connection error:", err);
   } else {
     console.log("Mongo db connect success");
-    
+
     // Database tanlash
     const db = client.db("Reja");
-    
+
     // App.js-dan app olish
     const createApp = require("./app");
     const app = createApp(db);
-    
+
     // Server yaratish
     const server = http.createServer(app);
-    const PORT = process.env.PORT || 4001;
-    
-    server.listen(PORT, function() {
-      console.log(`The server is running successfully on port: ${PORT}, http://localhost:${PORT}`);
+    const PORT = process.env.PORT || 9005;
+
+    server.listen(PORT, function () {
+      console.log(
+        `The server is running successfully on port: ${PORT}, http://localhost:${PORT}`,
+      );
     });
   }
 });
-// const http = require("http"); 
+// const http = require("http");
 // const mongodb= require("mongodb");
 
-
 // let db;
-// const connectionString = 
+// const connectionString =
 // "mongodb+srv://Riven:Jaloliddin2005A@cluster0.mgxxaw2.mongodb.net/?appName=Cluster0"
-
 
 // mongodb.connect(connectionString,
 //      {useNewUrlParser: true,
 //     useUnifiedTopology: true,
-//      }, 
+//      },
 //    (err, client) => {
 //     if(err) console.log("ERROR on connection to Mongo db");
 //     else{
 //         console.log("Mongo db connect success")
 //         module.exports = client;
 //         const app = require("./app");
-//         const server =http.createServer(app); 
+//         const server =http.createServer(app);
 //         let PORT = 4001;
 //         server.listen(PORT, function () {
 //        console.log(`The server is running succesfully on port: ${PORT}, http://localhost:${PORT}`);
@@ -57,32 +57,28 @@ client.connect((err) => {
 //     };
 // });
 
-
-
-
 // console.log("webserverni boshlash");
-// const express = require("express"); 
-// const app = express(); 
-// const http = require("http"); 
+// const express = require("express");
+// const app = express();
+// const http = require("http");
 // const fs = require("fs");
 // let user;
 // fs.readFile("database/user.json","utf-8", (err, data) =>{
 //          if(err) {
 //             console.log("ERROR",err);
 //          } else{
-//             user = JSON.parse(data); 
+//             user = JSON.parse(data);
 //          }
 // });
 // //1 Expressga
-// app.use(express.static("public")); 
-// app.use(express.json()); 
-// app.use(express.urlencoded({extended: true})); 
+// app.use(express.static("public"));
+// app.use(express.json());
+// app.use(express.urlencoded({extended: true}));
 // //2 Sessions
 // //3 Backend side server. View code
 // app.set("views", "views");
 // app.set("view engine", "ejs");
 // //4
-    
 
 // app.get("/author",(req,res)=> {
 //   res.render("author", {user: user});
@@ -91,23 +87,11 @@ client.connect((err) => {
 //     res.end(`<h1>Hello world by Riven</h1>`);
 // });
 
-// const server =http.createServer(app); 
+// const server =http.createServer(app);
 // let PORT = 4000;
 // server.listen(PORT, function () {
 //     console.log(`The server is running succesfully on port: ${PORT}`);
 // });
-
-
-
-
-
-
-
-
-
-
-
-
 
 // console.log("webserverni boshlash");
 // const express = require("express"); //require() → boshqa package/module'ni kodimizga olib kiradi.
@@ -135,18 +119,14 @@ client.connect((err) => {
 // //     res.end(`<h1>Siz sovg'alar bulmidasz</h1>`);
 // // });
 
-
-
 // // app.post('/create-item', (req,res) =>{
 // //    console.log(req.body);
 // //    res.json({test:"success"});
 // // }); //console.log(req.body); Bu user yuborgan ma'lumotni ko‘rsatadi.
 
-
 // // app.get('/', function (req, res){
 // //        res.render("harid");
 // // });//  res.render("harid"); views papkasidan home.ejsni top va browserga render qilib ber.
-
 
 // const server =http.createServer(app); //HTTP server yarat va requestlarni mening Express appimga ber.
 // let PORT = 4000;
@@ -154,8 +134,7 @@ client.connect((err) => {
 //     console.log(`The server is running succesfully on port: ${PORT}`);
 // });
 
-
 // // SSR orqali frontet
-// // Bootstrap css 
+// // Bootstrap css
 // // Post Methodli API
 // // publicda fronetga tegishli bulgan Java script , stylelar img lar quriladi
