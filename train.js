@@ -1,13 +1,29 @@
-//MIT task-c
-function teskari(str) {
-  let reverse = "";
-  for (let i = str.length - 1; i >= 0; i--) {
-    //for (boshlanish; shart; o'zgarish)
-    reverse += str[i];
+//MIT task-g
+function getHighestIndex(arr) {
+  let highest = arr[0];
+  let highestIndex = 0;
+
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] > highest) {
+      highest = arr[i];
+      highestIndex = i;
+    }
   }
-  return reverse;
+
+  return highestIndex;
 }
-console.log(teskari("Ali"));
+
+console.log(getHighestIndex([10, 9, 44, 3]));
+//MIT task-c
+// function teskari(str) {
+//   let reverse = "";
+//   for (let i = str.length - 1; i >= 0; i--) {
+//     //for (boshlanish; shart; o'zgarish)
+//     reverse += str[i];
+//   }
+//   return reverse;
+// }
+// console.log(teskari("Ali"));
 //MIT task-d
 //Shunday class tuzing tuzing nomi Shop,
 // va uni constructoriga 3 hil mahsulot pass
