@@ -1,14 +1,28 @@
-//Mit Task-F
-function findDouble(f) {
-  for (let i = 0; i < f.length; i++) {
-    for (let j = 0; j < f.length; j++) {
-      if (f[i] === f[j] && i !== j) {
-        return true;
-      }
+//Mit task-k
+function countVowels(str) {
+  let count = 0;
+
+  for (let i = 0; i < str.length; i++) {
+    if ("aeiou".includes(str[i])) {
+      count++;
     }
   }
+
+  return count;
 }
-console.log(findDouble("jaloliddin"));
+
+console.log(countVowels("jaloliddin"));
+//Mit Task-F
+// function findDouble(f) {
+//   for (let i = 0; i < f.length; i++) {
+//     for (let j = 0; j < f.length; j++) {
+//       if (f[i] === f[j] && i !== j) {
+//         return true;
+//       }
+//     }
+//   }
+// }
+// console.log(findDouble("jaloliddin"));
 
 //MIT task-g
 // function getHighestIndex(arr) {
