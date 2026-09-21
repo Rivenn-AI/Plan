@@ -1,17 +1,31 @@
-//Mit task-k
-function countVowels(str) {
-  let count = 0;
-
-  for (let i = 0; i < str.length; i++) {
-    if ("aeiou".includes(str[i])) {
-      count++;
+//Mit Task-L
+function teskari(q) {
+  let words = q.split(" ");
+  let reverse = "";
+  for (let i = 0; i < words.length; i++) {
+    for (let j = words[i].length - 1; j >= 0; j--) {
+      reverse += words[i][j];
     }
+    reverse += " ";
   }
-
-  return count;
+  return reverse;
 }
+console.log(teskari("Men kecha Seoul bordim"));
 
-console.log(countVowels("jaloliddin"));
+//Mit task-k
+// function countVowels(str) {
+//   let count = 0;
+
+//   for (let i = 0; i < str.length; i++) {
+//     if ("aeiou".includes(str[i])) {
+//       count++;
+//     }
+//   }
+
+//   return count;
+// }
+
+// console.log(countVowels("jaloliddin"));
 //Mit Task-F
 // function findDouble(f) {
 //   for (let i = 0; i < f.length; i++) {
