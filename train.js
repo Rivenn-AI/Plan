@@ -1,16 +1,28 @@
-//Mit Task-L
-function teskari(q) {
-  let words = q.split(" ");
-  let reverse = "";
-  for (let i = 0; i < words.length; i++) {
-    for (let j = words[i].length - 1; j >= 0; j--) {
-      reverse += words[i][j];
-    }
-    reverse += " ";
+//MIt Task-M
+function kvadrat(number) {
+  let result = [];
+  for (let i = 0; i < number.length; i++) {
+    result.push({
+      number: number[i],
+      square: number[i] * number[i],
+    });
   }
-  return reverse;
+  return result;
 }
-console.log(teskari("Men kecha Seoul bordim"));
+console.log(kvadrat([3, 5, 9]));
+//Mit Task-L
+// function teskari(q) {
+//   let words = q.split(" ");
+//   let reverse = "";
+//   for (let i = 0; i < words.length; i++) {
+//     for (let j = words[i].length - 1; j >= 0; j--) {
+//       reverse += words[i][j];
+//     }
+//     reverse += " ";
+//   }
+//   return reverse;
+// }
+// console.log(teskari("Men kecha Seoul bordim"));
 
 //Mit task-k
 // function countVowels(str) {

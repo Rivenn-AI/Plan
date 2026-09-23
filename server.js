@@ -23,7 +23,7 @@ client.connect((err) => {
 
     // Server yaratish
     const server = http.createServer(app);
-    const PORT = process.env.PORT || 9005;
+    const PORT = process.env.PORT || 9000;
 
     server.listen(PORT, function () {
       console.log(
